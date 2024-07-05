@@ -2,16 +2,16 @@
 // найти минимальное число в массиве, решение задание должно состоять из одной
 // строки кода.
 
-// const arr = [1, 5, 7, 9, 0];
+const arr = [1, 5, 7, 9, 0];
 
-// function searchMin (arr){
-//     return Math.min(...arr);
-// }
-// console.log(searchMin(arr));
+function searchMin (arr){
+    return Math.min(...arr);
+}
+console.log(searchMin(arr));
 
 // // или сразу в консоль..
 
-// console.log(Math.min(...arr));
+console.log(Math.min(...arr));
 
 
 // 2) Напишите функцию createCounter, которая создает счетчик и возвращает объект
@@ -20,31 +20,31 @@
 // на 1. Значение счетчика должно быть доступно только через методы объекта,
 // а не напрямую.
 
-// function createCounter () {
-//     let counter = 0;
+function createCounter () {
+    let counter = 0;
 
-//     const increment = () => {
-//         return ++counter;
-//     }
+    const increment = () => {
+        return ++counter;
+    }
 
-//     const decrement = () => {
-//         return --counter;
-//     }
+    const decrement = () => {
+        return --counter;
+    }
 
-//     const backCount = () => {
-//         return counter;
-//     }
+    const backCount = () => {
+        return counter;
+    }
 
-//     return {increment, decrement, backCount};
-// }
+    return {increment, decrement, backCount};
+}
 
-// const count = createCounter();
-// console.log(count.increment());
-// console.log(count.increment());
-// console.log(count.decrement());
+const count = createCounter();
+console.log(count.increment());
+console.log(count.increment());
+console.log(count.decrement());
 
-// const count2 = createCounter();
-// console.log(count2.backCount());
+const count2 = createCounter();
+console.log(count2.backCount());
 
 // 3) Дополнительное задание, выполняем только если проходили работу с DOM.
 // Напишите рекурсивную функцию findElementByClass, которая принимает корневой
@@ -71,6 +71,8 @@ function findElementsByClass(rootElement, className) {
   let foundChildren = findElementsByClass(rootElement, 'elem4');
 
   console.log(foundChildren);
+  
+// 2 Вар.
 
 // function countTags(n, classEl) { //n – это Node
 //     let numtags = 0;     //Инициализируем счетчик тегов
