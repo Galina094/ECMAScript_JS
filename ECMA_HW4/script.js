@@ -7,26 +7,24 @@
 
 // Работа должна быть выполнена с API: https://reqres.in/
 
+async function loadData(id) {
+    const url = `https://reqres.in/api/users/${id}`;
 
+    const response = await fetch(url);
 
-// async function loadData(id) {
-//     const url = `https://reqres.in/api/users/${id}`;
+    if (response.status !== 200) {
+        console.log(`User with id ${id} don't found`);
+    }
 
-//     const response = await fetch(url);
+    return response.json();
+}
 
-//     if (response.status !== 200) {
-//         console.log(`User with id ${id} don't found`);
-//     }
-
-//     return response.json();
-// }
-
-// loadData(555).then((data) => {
-//     console.log(data);
-// }).catch((error) => {
-//     error.onload = () =>
-//         alert(`Bad error: ${error.message}`);
-// })
+loadData(555).then((data) => {
+    console.log(data);
+}).catch((error) => {
+    error.onload = () =>
+        alert(`Bad error: ${error.message}`);
+})
 
 
 
@@ -49,39 +47,40 @@
 //   .catch(error => {
 //     console.log(error.message);
 //   });
+
 // saveUserData использует fetch для отправки данных о пользователе на удаленный сервер для сохранения. Она отправляет POST-запрос на URL-адрес /api/users с указанием типа содержимого application/json и сериализует объект с данными о пользователе в JSON-строку с помощью JSON.stringify(). Если запрос успешен (с кодом 201), функция разрешает промис. Если запрос неуспешен, функция отклоняет промис с сообщением об ошибке.
 
 // Работа должна быть выполнена с API: https://reqres.in/
 
-// async function saveUserData(user) {
-//     const url = "https://reqres.in/api/users";
-//     let response = await fetch(url, {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(user),
-//     });
-//     if (!response.ok) {
-//         console.log(response.status);
-//         throw new Error("Что-то пошло не так: " + response.status);
-//     } else {
-//         console.log(response.status);
-//     }
-// }
+async function saveUserData(user) {
+    const url = "https://reqres.in/api/users";
+    let response = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+    });
+    if (!response.ok) {
+        console.log(response.status);
+        throw new Error("Что-то пошло не так: " + response.status);
+    } else {
+        console.log(response.status);
+    }
+}
 
-// const user = {
-//     "name": "John Doe",
-//     "job": "unknown"
-// };
+const user = {
+    "name": "John Doe",
+    "job": "unknown"
+};
 
-// saveUserData(user)
-//     .then(() => {
-//         console.log('User data saved successfully');
-//     })
-//     .catch(error => {
-//         console.log(error.message);
-//     });
+saveUserData(user)
+    .then(() => {
+        console.log('User data saved successfully');
+    })
+    .catch(error => {
+        console.log(error.message);
+    });
 
 
 
